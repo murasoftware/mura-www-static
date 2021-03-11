@@ -226,10 +226,11 @@ moduleRegistry.forEach(module => {
     if (!module.excludeFromClient) {
       Mura.Module[module.name] = Mura.UI.extend({
         component: module.component,
+        clientRendered: false,
         renderClient() {
           
           const content = Mura.content.getAll();
-
+         
           ReactDOM.render(
             React.createElement(this.component, {...this.context,content}),
             this.context.targetEl,
@@ -237,7 +238,17 @@ moduleRegistry.forEach(module => {
               this.trigger('afterRender');
             },
           );
+
+          this.clientRendered=true;
         },
+        destroy(){
+          if( this.clientRendered
+              && this.context 
+              && this.context.targetEl 
+              && this.context.targetEl.innerHTML){
+            ReactDOM.unmountComponentAtNode(this.context.targetEl);
+          }
+        }
       });
     }
   }
@@ -257,6 +268,7 @@ Mura.Module.Container.reopen({
 		  //console.log(Mura(this).data())
 		  nestedObjects.push(Mura(this).data());
 		});
+    console.log('nestedObjects',nestedObjects)
 		self.data('items', JSON.stringify(nestedObjects));
 		self.removeAttr('data-content');
 	  }
