@@ -15,14 +15,27 @@
 				{"name":"Tight Vertical","value":"tight-y"},
 				{"name":"Tight Top","value":"tight-top"},
 				{"name":"Tight Bottom","value":"tight-bottom"},
+				{"name":"Tight Left","value":"tight-left"},
+				{"name":"Tight Right","value":"tight-right"},
 				{"name":"Normal","value":"normal"},
 				{"name":"Normal Vertical","value":"normal-y"},
 				{"name":"Normal Top","value":"normal-top"},
 				{"name":"Normal Bottom","value":"normal-bottom"},
+				{"name":"Normal Left","value":"normal-left"},
+				{"name":"Normal Right","value":"normal-right"},
 				{"name":"Loose","value":"loose"},
 				{"name":"Loose Vertical","value":"loose-y"},
 				{"name":"Loose Top","value":"loose-top"},
-				{"name":"Loose Bottom","value":"loose-bottom"}
+				{"name":"Loose Bottom","value":"loose-bottom"},
+				{"name":"Loose Left","value":"loose-left"},
+				{"name":"Loose Right","value":"loose-right"},
+				{"name":"Layout Items 40/60","value":"module-layout-40-60"},
+				{"name":"Layout Items 60/40","value":"module-layout-60-40"},
+				{"name":"Layout Items 2 Columns","value":"module-layout-two-col"},
+				{"name":"Layout Items 3 Columns","value":"module-layout-three-col"},
+				{"name":"Layout Items 4 Columns","value":"module-layout-four-col"},
+				{"name":"Layout Items 5 Columns","value":"module-layout-five-col"},
+				{"name":"Layout Items 6 Columns","value":"module-layout-six-col"}
 			],
 			"moduleThemeOptions":[
 				{"name":"Brand Default","value":"module-brand"},
@@ -47,13 +60,6 @@
 				{"name":"Equal Height Icons LG (150px)","value":"module-equal-height-icons-lg"},
 				{"name":"Equal Height Icons XL (220px)","value":"module-equal-height-icons-xl"},
 				{"name":"Center Icons","value":"module-center-icons"},
-				{"name":"Layout Items 40/60","value":"module-layout-40-60"},
-				{"name":"Layout Items 60/40","value":"module-layout-60-40"},
-				{"name":"Layout Items 2 Columns","value":"module-layout-two-col"},
-				{"name":"Layout Items 3 Columns","value":"module-layout-three-col"},
-				{"name":"Layout Items 4 Columns","value":"module-layout-four-col"},
-				{"name":"Layout Items 5 Columns","value":"module-layout-five-col"},
-				{"name":"Layout Items 6 Columns","value":"module-layout-six-col"},
 				{"name":"Cards","value":"module-text-cards"}
 			]
 		},
@@ -103,6 +109,80 @@
 							"option3",
 							"option4"
 						]
+					}
+				]
+			},
+			"GatedAsset":{
+				"name":"Gated Asset",
+				"contenttypes":"*",
+				"configurator":[{
+					"type":"select",
+					"name":"isgatelocked",
+					"label":"Is Gate Locked?",
+					"options":[
+						{"name":"Yes","value":1},
+						{"name":"No","value":0}
+					]
+				}]
+			},
+			"Gist":{
+				"name":"Gist",
+				"contenttypes":"*",
+				"configurator":[
+					{
+						"type":"text",
+						"name":"gistid",
+						"label":"Gist ID"
+					},
+					{
+						"type":"text",
+						"name":"file",
+						"label":"File"
+					}
+				]
+			},
+			"matrix_selector":{
+				"name":"Experience Selector",
+				"contenttypes":"*",
+				"external":true,
+				"configurator":[
+					{
+						"type":"text",
+						"name":"selfidstart",
+						"label":"Self ID Start"
+					},
+					{
+						"type":"text",
+						"name":"selfidmiddle",
+						"label":"Self ID Middle"
+					},
+					{
+						"type":"text",
+						"name":"selfidend",
+						"label":"Self ID End"
+					},
+					{
+						"type":"select",
+						"name":"displaytype",
+						"label":"Display Type",
+						"labels":["Inline","Widget","Eyebrow"],
+						"options":["inline","widget","eyebrow"],
+						"value":"inline"
+					},
+					{
+						"type":"select",
+						"name":"widgetposition",
+						"label":"Widget Position",
+						"labels":["Top / Right","Bottom / Right","Bottom / Left","Top / Left"],
+						"options":["top_right","bottom_right","bottom_left","top_left"],
+						"value":"top_right",
+						"condition":"this.displaytype==='widget'"
+
+					},
+					{
+						"type":"name_value_array",
+						"name":"customlinks",
+						"label":"Links"
 					}
 				]
 			},

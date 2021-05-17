@@ -4,11 +4,16 @@ import Page from '../[...page]';
 import { EditLayout, setMuraConfig, getMuraProps } from '@murasoftware/next-core';
 import muraConfig from 'mura.config';
 
-export async function getServerSideProps(context) {
-  setMuraConfig(muraConfig);
-  const props = await getMuraProps(context,true,{expand:'categoryassignments'});
-
-  return props;
+export async function getServiceSideProps(context) {
+  try{
+    setMuraConfig(muraConfig);
+    const props = await getMuraProps(context,true,{expand:'categoryassignments'});
+    return props;
+  } catch (e){
+    console.error(e);
+    const props={};
+    return props;
+  }
 }
 
 function Edit(props) {
