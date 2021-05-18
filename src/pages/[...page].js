@@ -30,12 +30,18 @@ export async function getStaticProps(context) {
 
 export default function Page(props) {
   setMuraConfig(muraConfig);
-  
+   /*
+   When in a route not defined in static routes it's intitially missing props
+  */
+   if(!props.content){
+    return '';
+  }
+
   const router = useRouter();
   /*
    When in a route not defined in static routes it's intitially missing props
   */
- console.log(props)
+ 
   const {
     content = {},
     content: { displayregions } = {},
