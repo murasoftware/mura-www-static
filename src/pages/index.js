@@ -19,6 +19,7 @@ export async function getStaticProps(context) {
 
 export default function Page(props) {
   setMuraConfig(muraConfig);
+
   const {
     content = {},
     content: { displayregions } = {},
@@ -38,7 +39,9 @@ export default function Page(props) {
   } else if(content.isnew && !content.redirect){
     return <ErrorPage statusCode="404" />
   } else {
+
     return (
+
       <MainLayout {...props}>
         <Head>
           {/* I wanted to add a "MuraMetaTags" component here but doesn't seem possible inside the <Head> component -- see metaTags branch */}
@@ -92,6 +95,9 @@ export default function Page(props) {
           props={props}
         />
         <div dangerouslySetInnerHTML={{__html:props.codeblocks.footer}}/>
+        {/*
+          <div className="mura-object" data-object='cookie_consent' data-statsid='cookie_consent' data-width='md'/>
+        */}
       </MainLayout>
     );
   }

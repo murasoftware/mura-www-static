@@ -30,7 +30,7 @@ export async function getStaticProps(context) {
 
 export default function Page(props) {
   setMuraConfig(muraConfig);
-   /*
+  /*
    When in a route not defined in static routes it's intitially missing props
   */
    if(!props.content){
@@ -58,6 +58,7 @@ export default function Page(props) {
   } else if(content.isnew && !content.redirect){
     return <ErrorPage statusCode="404" />
   } else {
+
     return (
       <MainLayout {...props} route={`/${router.query.page}`}>  
         <Head>
@@ -112,6 +113,9 @@ export default function Page(props) {
           props={props}
         />
         <div dangerouslySetInnerHTML={{__html:props.codeblocks.footer}}/>
+        {/*
+          <div className="mura-object" data-object='cookie_consent' data-statsid='cookie_consent' data-width='md'/>
+        */}
       </MainLayout>
     );
   }
