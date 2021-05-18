@@ -7,6 +7,7 @@ services:
         context: .
         dockerfile: Dockerfile.mura
     environment:
+        LUCEE_JAVA_OPTS: "-Xms1024m -Xmx2048m"
         MURA_ADMIN_USERNAME: admin
         MURA_ADMIN_PASSWORD: admin
         MURA_ADMINEMAIL: example@localhost.com
@@ -38,7 +39,7 @@ services:
         -   ../mura/app/modules/codeblocks:/var/www/modules/codeblocks
         -   ../MXP:/var/www/plugins/MXP
         -   sites_data:/var/www/sites
-        -   themes_data:/var/www/themes
+        #-   themes_data:/var/www/themes
         -   ../mura/app/temp:/var/www/temp
     ports:
         - "8888:8888"

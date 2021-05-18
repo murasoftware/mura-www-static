@@ -4,7 +4,7 @@ import Page from '../[...page]';
 import { EditLayout, setMuraConfig, getMuraProps } from '@murasoftware/next-core';
 import muraConfig from 'mura.config';
 
-export async function getServiceSideProps(context) {
+export async function getServerSideProps(context) {
   try{
     setMuraConfig(muraConfig);
     const props = await getMuraProps(context,true,{expand:'categoryassignments'});

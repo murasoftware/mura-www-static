@@ -6,6 +6,15 @@ import ErrorPage from 'next/error';
 import Body from '../components/Body';
 import muraConfig from 'mura.config';
 
+export async function getStaticPaths() {
+  setMuraConfig(muraConfig);
+  const paths = await getMuraPaths();
+
+  return {
+    paths,
+    fallback: true,
+  };
+}
 
 export async function getStaticProps(context) {
   try{
@@ -26,6 +35,7 @@ export default function Page(props) {
   /*
    When in a route not defined in static routes it's intitially missing props
   */
+ console.log(props)
   const {
     content = {},
     content: { displayregions } = {},
