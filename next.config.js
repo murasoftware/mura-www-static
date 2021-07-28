@@ -48,7 +48,7 @@ module.exports = withTM(
       env: {
         rootpath: typeof process.env.MURA_ROOTPATH != 'undefined' ? process.env.MURA_ROOTPATH : 'http://localhost:8888',
         siteid: process.env.MURA_SITEID || ['default'],
-        editroute: '',
+        editroute: '/edit',
         sitename: typeof process.env.MURA_SITENAME != 'undefined' ? process.env.MURA_SITENAME :'Example Site',
         siteidinurls:  handleBooleanProperty(process.env.MURA_SITEIDINURLS),
         codeblocks: handleBooleanProperty(process.env.MURA_CODEBLOCKS),
