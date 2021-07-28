@@ -26,7 +26,8 @@ export default function Page(props) {
     content: {
       displayregions: { primarycontent,footer,header } = {},
     },
-    moduleStyleData
+    moduleStyleData,
+    queryParams = {}
   } = props;
   
   /*
@@ -93,6 +94,7 @@ export default function Page(props) {
           footer={footer}
           displayregions={displayregions}
           props={props}
+          queryParams={queryParams}
         />
         <div dangerouslySetInnerHTML={{__html:props.codeblocks.footer}}/>
         {/*
