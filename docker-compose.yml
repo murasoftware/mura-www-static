@@ -3,9 +3,7 @@ version: '3.8'
 services:
   #Mura Server
   mura:
-    build:
-        context: .
-        dockerfile: Dockerfile.mura
+    image: murasoftware/mura:latest
     environment:
         LUCEE_JAVA_OPTS: "-Xms1024m -Xmx2048m"
         MURA_ADMIN_USERNAME: admin
