@@ -39,11 +39,10 @@ export const ConnectorConfig = {
   editroute: process.env.editroute,
   sitename: process.env.sitename,
   siteidinurls:  process.env.siteidinurls,
-  codeblocks: true,
+  codeblocks: process.env.codeblocks,
   variations: process.env.variations,
   MXP: process.env.MXP,
-  htmleditortype: process.env.htmleditortype,
-  editroute:"/edit"
+  htmleditortype: process.env.htmleditortype
 };
 
 /*
