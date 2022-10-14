@@ -1,9 +1,9 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { setMuraConfig, MainLayout, MuraJSRefPlaceholder, getMuraProps, getRootPath, getMuraPaths, getSiteName } from '@murasoftware/next-core';
+import { getMuraPaths, setMuraConfig, MainLayout, MuraJSRefPlaceholder ,getMura, getMuraProps, getSiteName, getRootPath} from '@murasoftware/next-core';
 import ErrorPage from 'next/error';
-import Body from '../components/Body';
-import muraConfig from 'mura.config';
+import Body from '@components/Body';
+import muraConfig, { DisplayOptions } from 'mura.config';
 import Head from '@components/Head';
 
 export async function getStaticPaths() {
@@ -17,39 +17,42 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
+
   try{
     setMuraConfig(muraConfig);
-    const props = await getMuraProps(context,false,{expand:'categoryassignments'});
-    return props;
-  } catch (e){
-    console.error(e);
-    const props={};
-    return props;
-  }
+    
+    const Mura=getMura(context);
+    
+    return getMuraProps(
+      {
+        context:context,
+        Mura:Mura,
+        renderMode:'static',
+        params: {
+            expand:'categoryassignments'
+        }
+      }
+    );
+
+    } catch(e){
+      console.log(e);
+      return {
+        props:{}
+      };
+    }
 }
-
 export default function Page(props) {
-  setMuraConfig(muraConfig);
-  /*
-   When in a route not defined in static routes it's intitially missing props
-  */
-   if(!props.content){
-    return '';
-  }
-
-  const router = useRouter();
-  /*
-   When in a route not defined in static routes it's intitially missing props
-  */
- 
+  
   const {
     content = {},
     content: { displayregions } = {},
     content: {
       displayregions: { primarycontent,footer,header } = {},
     },
+    codeblocks,
     moduleStyleData,
-    queryParams = {}
+    queryParams = {},
+    renderMode
   } = props;
 
   if(!content){
@@ -60,17 +63,25 @@ export default function Page(props) {
     return <ErrorPage statusCode="404" />
   } else {
 
+    setMuraConfig(muraConfig);
+    
+    const Mura = getMura(content.siteid);
+    
+    Mura.setRenderMode(renderMode);
+
+    const router = useRouter();
+
     return (
-      <MainLayout {...props} route={`/${router.query.page}`}>  
-         <Head            
-            content={content}
-            getSiteName={getSiteName}
-            MuraJSRefPlaceholder={MuraJSRefPlaceholder}
-            getRootPath={getRootPath}
-            codeblocks={props.codeblocks}
-          />
-        <div dangerouslySetInnerHTML={{__html:props.codeblocks.header}}/>
-        <div dangerouslySetInnerHTML={{__html:props.codeblocks.bodystart}}/>
+      <MainLayout {...props} Mura={Mura} route={`/${router.query.page}`}>  
+        <Head            
+          content={content}
+          MuraJSRefPlaceholder={MuraJSRefPlaceholder}
+          codeblocks={codeblocks}
+          Mura={Mura}
+          getSiteName={getSiteName}
+          getRootPath={getRootPath}
+        />
+        <div dangerouslySetInnerHTML={{__html:codeblocks.bodystart}}/>
         <Body
           content={content}
           moduleStyleData={moduleStyleData}
@@ -78,13 +89,14 @@ export default function Page(props) {
           primarycontent={primarycontent}
           footer={footer}
           displayregions={displayregions}
-          props={props}
           queryParams={queryParams}
+          props={props}
+          Mura={Mura}
         />
-        <div dangerouslySetInnerHTML={{__html:props.codeblocks.footer}}/>
-        {/*
-          <div className="mura-object" data-object='cookie_consent' data-statsid='cookie_consent' data-width='md'/>
-        */}
+        <div dangerouslySetInnerHTML={{__html:codeblocks.footer}}/>
+          {DisplayOptions.cookieconsent && 
+            <div className="mura-object" data-object='cookie_consent' data-statsid='cookie_consent' data-width='sm' />
+          }
       </MainLayout>
     );
   }

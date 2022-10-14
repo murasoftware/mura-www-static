@@ -5,21 +5,32 @@ import { EditLayout, setMuraConfig, getMuraProps } from '@murasoftware/next-core
 import muraConfig from 'mura.config';
 
 export async function getServerSideProps(context) {
+
   try{
     setMuraConfig(muraConfig);
-    const props = await getMuraProps(context,true,{expand:'categoryassignments'});
-    return props;
-  } catch (e){
-    console.error(e);
-    const props={};
-    return props;
-  }
+    
+    const Mura=getMura(context);
+    
+    return getMuraProps(
+      {
+        context:context,
+        Mura:Mura,
+        renderMode:'dynamic',
+        params: {
+            expand:'categoryassignments'
+        }
+      }
+    );
+
+    } catch(e){
+      console.log(e);
+      return {
+        props:{}
+      };
+    }
 }
 
 function Edit(props) {
-  setMuraConfig(muraConfig);
-  const router = useRouter();
-
   return (
     <EditLayout {...props}>
       <Page {...props} route={`/${router.query.page}`} />

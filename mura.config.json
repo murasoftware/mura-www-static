@@ -10,6 +10,15 @@
 			"editableAttributesArray":[],
 			"imageAttributesArray":[],
 			"defaultInheritedRegions":["header","footer"],
+			"layoutOptions":[
+				{"name":"40/60","value":"module-layout-40-60","modules":"container"},
+				{"name":"60/40","value":"module-layout-60-40","modules":"container"},
+				{"name":"2 Columns","value":"module-layout-two-col","modules":"container"},
+				{"name":"3 Columns","value":"module-layout-three-col","modules":"container"},
+				{"name":"4 Columns","value":"module-layout-four-col","modules":"container"},
+				{"name":"5 Columns","value":"module-layout-five-col","modules":"container"},
+				{"name":"6 Columns","value":"module-layout-six-col","modules":"container"}
+			],
 			"spacingOptions":[
 				{"name":"Tight","value":"tight"},
 				{"name":"Tight Vertical","value":"tight-y"},
@@ -28,39 +37,158 @@
 				{"name":"Loose Top","value":"loose-top"},
 				{"name":"Loose Bottom","value":"loose-bottom"},
 				{"name":"Loose Left","value":"loose-left"},
-				{"name":"Loose Right","value":"loose-right"},
-				{"name":"Layout Items 40/60","value":"module-layout-40-60"},
-				{"name":"Layout Items 60/40","value":"module-layout-60-40"},
-				{"name":"Layout Items 2 Columns","value":"module-layout-two-col"},
-				{"name":"Layout Items 3 Columns","value":"module-layout-three-col"},
-				{"name":"Layout Items 4 Columns","value":"module-layout-four-col"},
-				{"name":"Layout Items 5 Columns","value":"module-layout-five-col"},
-				{"name":"Layout Items 6 Columns","value":"module-layout-six-col"}
+				{"name":"Loose Right","value":"loose-right"}
 			],
 			"moduleThemeOptions":[
-				{"name":"Brand Default","value":"module-brand"},
-				{"name":"Black","value":"module-black"},
-				{"name":"Light Gray","value":"module-light-gray"},
-				{"name":"Medium Gray","value":"module-medium-gray"},
-				{"name":"Dark Gray","value":"module-dark-gray"},
-				{"name":"Orange","value":"module-orange"},
-				{"name":"Red","value":"module-red"},
-				{"name":"Azul","value":"module-azul"},
-				{"name":"Sea Foam","value":"module-sea-foam"},
-				{"name":"Teal","value":"module-teal"},
-				{"name":"Green","value":"module-green"},
-				{"name":"Cranberry","value":"module-cranberry"},
-				{"name":"Goldenrod","value":"module-goldenrod"},
-				{"name":"Violet","value":"module-violet"},
-				{"name":"Purple","value":"module-purple"},
-				{"name":"Blue","value":"module-blue"},
-				{"name":"White","value":"module-white"},
-				{"name":"Horizontal Nav","value":"module-horizontal-nav"},
-				{"name":"Equal Height Icons (100px)","value":"module-equal-height-icons"},
-				{"name":"Equal Height Icons LG (150px)","value":"module-equal-height-icons-lg"},
-				{"name":"Equal Height Icons XL (220px)","value":"module-equal-height-icons-xl"},
-				{"name":"Center Icons","value":"module-center-icons"},
-				{"name":"Cards","value":"module-text-cards"}
+				{
+					"name":"Brand Default",
+					"value":"module-brand",
+					"modules":"*",
+					"omitmodules":""
+				},
+				{
+					"name":"Black",
+					"value":"module-black",
+					"modules":"*",
+					"omitmodules":""
+				},
+				{
+					"name":"Light Gray",
+					"value":"module-light-gray",
+					"modules":"*",
+					"omitmodules":""
+				},
+				{
+					"name":"Medium Gray",
+					"value":"module-medium-gray",
+					"modules":"*",
+					"omitmodules":""
+				},
+				{
+					"name":"Dark Gray",
+					"value":"module-dark-gray",
+					"modules":"*",
+					"omitmodules":""
+				},
+				{
+					"name":"Orange",
+					"value":"module-orange",
+					"modules":"*",
+					"omitmodules":""
+				},
+				{
+					"name":"Red",
+					"value":"module-red",
+					"modules":"*"
+				},
+				{
+					"name":"Azul",
+					"value":"module-azul",
+					"modules":"*",
+					"omitmodules":""
+				},
+				{
+					"name":"Sea Foam",
+					"value":"module-sea-foam",
+					"modules":"*",
+					"omitmodules":""
+				},
+				{
+					"name":"Teal",
+					"value":"module-teal",
+					"modules":"*",
+					"omitmodules":""
+				},
+				{
+					"name":"Green",
+					"value":"module-green",
+					"modules":"*",
+					"omitmodules":""
+				},
+				{
+					"name":"Cranberry",
+					"value":"module-cranberry",
+					"modules":"*",
+					"omitmodules":""
+				},
+				{
+					"name":"Goldenrod",
+					"value":"module-goldenrod",
+					"modules":"*",
+					"omitmodules":""
+				},
+				{
+					"name":"Violet",
+					"value":"module-violet",
+					"modules":"*",
+					"omitmodules":""
+				},
+				{
+					"name":"Purple",
+					"value":"module-purple",
+					"modules":"*",
+					"omitmodules":""
+				},
+				{
+					"name":"Blue",
+					"value":"module-blue",
+					"modules":"*",
+					"omitmodules":""
+				},
+				{
+					"name":"White",
+					"value":"module-white",
+					"modules":"*",
+					"omitmodules":""
+				},
+				{
+					"name":"Equal Height Icons XS (50px)",
+					"value":"module-equal-height-icons",
+					"modules":"container",
+					"omitmodules":""
+				},
+				{
+					"name":"Equal Height Icons SM (75px)",
+					"value":"module-equal-height-icons",
+					"modules":"container",
+					"omitmodules":""
+				},
+				{
+					"name":"Equal Height Icons MD (100px)",
+					"value":"module-equal-height-icons",
+					"modules":"container",
+					"omitmodules":""
+				},
+				{
+					"name":"Equal Height Icons LG (150px)",
+					"value":"module-equal-height-icons-lg",
+					"modules":"container",
+					"omitmodules":""
+				},
+				{
+					"name":"Equal Height Icons XL (200px)",
+					"value":"module-equal-height-icons-xl",
+					"modules":"container",
+					"omitmodules":""
+				},
+				{
+					"name":"Center Icons",
+					"value":"module-center-icons",
+					"modules":"container",
+					"omitmodules":""
+				},
+				{
+					"name":"Cards",
+					"value":"module-text-cards",
+					"modules":"container",
+					"omitmodules":""
+				},
+				{
+					"name":"Image Grid",
+					"value":"module-image-grid",
+					"modules":"container",
+					"omitmodules":""
+				}
 			]
 		},
 		"proxies":{
@@ -93,6 +221,7 @@
 			"GatedAsset":{
 				"name":"Gated Asset",
 				"contenttypes":"*",
+				"iconclass":"mi-lock",
 				"configurator":[{
 					"type":"select",
 					"name":"isgatelocked",
@@ -106,6 +235,7 @@
 			"Gist":{
 				"name":"Gist",
 				"contenttypes":"*",
+				"iconclass":"mi-github",
 				"configurator":[
 					{
 						"type":"text",
@@ -122,6 +252,7 @@
 			"matrix_selector":{
 				"name":"Experience Selector",
 				"contenttypes":"*",
+				"iconclass":"mi-road",
 				"external":true,
 				"configurator":[
 					{
@@ -138,6 +269,14 @@
 						"type":"text",
 						"name":"selfidend",
 						"label":"Self ID End"
+					},
+					{
+						"type":"select",
+						"name":"mode",
+						"label":"Mode",
+						"labels":["Preview Only","Preview and Save"],
+						"options":["preview only","preview and save"],
+						"value":"preview only"
 					},
 					{
 						"type":"select",
@@ -167,6 +306,7 @@
 			"CTAButton":{
 				"name":"CTA Button",
 				"contenttypes":"*",
+				"iconclass":"mi-hand-pointer-o",
 				"omitcontenttypes":"",
 				"configurator":[
 					{"type":"text","name":"buttontext","label":"Button Text"},
@@ -197,18 +337,16 @@
 					{"type":"select","name":"rowcolslg","label":"Columns > 991px","labels":["6","5","4","3","2","1"],"options":["6","5","4","3","2","1"],"value":"3"},
 					{"type":"select","name":"rowcolsmd","label":"Columns > 767px","labels":["6","5","4","3","2","1"],"options":["6","5","4","3","2","1"],"value":"3"},
 					{"type":"select","name":"rowcolssm","label":"Columns > 575px","labels":["6","5","4","3","2","1"],"options":["6","5","4","3","2","1"],"value":"2"},
-					{"type":"select","name":"imagesize","label":"Image Size","labels":["Small","Medium","Large","Portrait","Landscape","Hero"],"options":["small","medium","large","portrait","landscape","hero"],"value":"landscape"}
+					{"type":"select","name":"imagesize","label":"Image Size","labels":["Small","Medium","Large","Portrait","Landscape","Hero"],"options":["small","medium","large","portrait","landscape","hero"],"value":"landscape"},
+					{"type":"radio","name":"showcategories","label":"Show Categories","labels":["Yes","No"],"options":["true","false"],"value":"false"},
+					{"type":"radio","name":"featuredcategoriesonly","label":"Featured Categories Only","labels":["Yes","No"],"options":["yes","no"],"value":"no","condition":"this.showcategories==='true'"}
 				]
 			},
 			"List":{
 				"name":"List",
 				"contenttypes":"",
 				"configurator":[
-					{"type":"fieldlist","name":"fields","label":"Display List",
-					"options":[
-						{"name":"Title","value":"Title"},
-						"Date"
-					]},
+					{"type":"fieldlist","name":"fields","label":"Display List"},
 					{"type":"select","name":"imagesize","label":"Image Size","labels":["Small","Medium","Large","Portrait","Landscape","Hero"],"options":["small","medium","large","portrait","landscape","hero"],"value":"medium"}
 				]
 			},
@@ -247,6 +385,10 @@
 					{"type":"select","name":"imagesize","label":"Image Size","labels":["Small","Medium","Large","Portrait","Landscape","Hero"],"options":["small","medium","large","portrait","landscape","hero"],"value":"landscape"}
 				]
 			},
+			"SearchResultsLayout":{
+				"name":"SearchResultsLayout",
+				"contenttypes":""
+			},
 			"SlickSlider":{
 				"name":"SlickSlider",
 				"contenttypes":"",
@@ -275,33 +417,103 @@
 			"PrimaryNav":{
 				"name":"PrimaryNav",
 				"contenttypes":"*",
+				"iconclass":"mi-navicon",
 				"configurator":[
 					{"type":"radio","name":"displayhome","label":"Display Home?","labels":["Yes","No"],"options":["true","false"],"value":"false"},
-					{"type":"file","name":"navlogo","label":"Navbar Logo"}
+					{"type":"file","name":"navlogo","label":"Navbar Logo"},
+					{"type":"radio","name":"displaysearch","label":"Display Search?","labels":["Yes","No"],"options":["true","false"],"value":"false"}
 				]
 			},
 			"ArticleMeta":{
 				"name":"Article Meta",
 				"contenttypes":"*",
+				"iconclass":"mi-info-circle",
 				"configurator":[
 					{"type":"fieldlist","name":"fields","label":"Display List","value":"Date,Credits,Tags"}
 				]
 			},
-			"HR":{
-				"name":"HR",
+			"Hr":{
+				"name":"Horizontal Rule",
+				"iconclass":"mi-minus",
 				"external":false,
 				"contenttypes":"*"
 			},
 			"Embed":{
 				"name":"Embed",
+				"iconclass":"mi-code",
+				"external":false,
+				"contenttypes":"*"
+			},
+			"Text":{
+				"name":"Text",
+				"iconclass":"mi-font",
 				"external":false,
 				"contenttypes":"*"
 			},
 			"Login":{
 				"name":"Login",
+				"iconclass":"mi-keyboard-o",
 				"external":false,
 				"contenttypes":"*"
+			},
+			"UtilityNav":{
+				"name":"Utility Nav",
+				"contenttypes":"*",
+				"iconclass":"mi-navicon",
+				"configurator":[
+					{
+						"type":"select",
+						"name":"linktarget",
+						"label":"Link Target",
+						"options":[
+							"",
+							"_self",
+							"_top",
+							"_blank"
+						]
+					},
+					{
+						"type":"name_value_array",
+						"name":"customlinks",
+						"label":"Links"
+					}
+				]
+			},
+			"SearchResults":{
+				"name":"Search Results",
+				"contenttypes":"*",
+				"iconclass":"mi-search",
+				"configurator":[
+					{
+						"type":"fieldlist","name":"fields","label":"Display List"
+					},
+					{
+						"type":"select",
+						"name":"nextn",
+						"label":"Items Per Page",
+						"labels":["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","25","50","100","ALL"],
+						"options":["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","25","50","100","1000000"],
+						"value":"0"
+					},
+					{
+						"type":"select",
+						"name":"maxitems",
+						"label":"Max Items",
+						"labels":["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","25","50","100","ALL"],
+						"options":["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","25","50","100","100000"],
+						"value":"0"
+					},
+					{
+						"type":"select",
+						"name":"scrollpages",
+						"label":"Auto Scroll Pages",
+						"labels":["True","False"],
+						"options":["true","false"],
+						"value":"false"
+					}
+				]
 			}
+
 	},
 	"sites":{
 		"default":{
